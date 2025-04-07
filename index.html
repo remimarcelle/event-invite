@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project: Alexius' Birthday Invite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .invite {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      font-weight: bold;
+    }
+
+    .rsvp-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2e86de;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .rsvp-button:hover {
+      background-color: #1e70c1;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: black;
+    }
+
+    input, button {
+      margin-top: 10px;
+      padding: 8px;
+      width: 90%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="invite">
+    <h1 style="color:#2e86de;">You're Invited!</h1>
+    <h2 style="color:#222;">Alexius' Birthday Party 🎉</h2>
+    <p>Come celebrate the amazing Alexius' special day with food, music, and memories!</p>
+
+    <ul>
+      <li>📅 Date: Thursday, 21st November 2025</li>
+      <li>⏰ Time: 7:00 PM until late</li>
+      <li>📍 Location: 17 Bloom Street, London</li>
+      <li>💃 Dress Code: Funky & Fabulous</li>
+    </ul>
+
+    <div class="rsvp-button" onclick="document.getElementById('rsvpModal').style.display='block'">RSVP Now</div>
+  </div>
+
+  <!-- RSVP Modal -->
+  <div id="rsvpModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('rsvpModal').style.display='none'">&times;</span>
+      <h2>RSVP for Alexius' Party</h2>
+      <form onsubmit="submitRSVP(event)">
+        <input type="text" placeholder="Your name" required><br>
+        <input type="email" placeholder="Your email" required><br>
+        <button type="submit">Submit</button>
+      </form>
+      <p id="rsvpMessage" style="color: green; font-weight: bold; display: none;">Thanks for RSVPing! 🎉</p>
+    </div>
+  </div>
+
+  <script>
+    function submitRSVP(event) {
+      event.preventDefault();
+      document.getElementById("rsvpMessage").style.display = "block";
+      setTimeout(function() {
+        document.getElementById('rsvpModal').style.display = 'none';
+        document.getElementById("rsvpMessage").style.display = "none";
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
